@@ -5,4 +5,15 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="ButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:width">@dimen/button_width</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
+        <item name="android:background">@color/udacity_orange</item>
+        <item name="android:layout_marginBottom">@dimen/button_margin_bottom</item>
+    </style>
+
 </resources>

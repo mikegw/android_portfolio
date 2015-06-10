@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+    private Toast projectToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,23 +27,9 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     public void handleProjectButtonClick(View view) {
-        // When user clicks on project display a toast
+        // When user clicks on a project display a toast
         Button b = (Button)view;
         String buttonText = b.getText().toString();
 
@@ -50,7 +37,8 @@ public class MainActivity extends ActionBarActivity {
         CharSequence text = "This button will launch " + buttonText;
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+        if (projectToast != null) projectToast.cancel();
+        projectToast = Toast.makeText(context, text, duration);
+        projectToast.show();
     }
 }
